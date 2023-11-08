@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    image: ghcr.io/rob-luke/emails-html-to-pdf:latest
+    restart: always
+    environment:
+      - IMAP_FOLDER=Paperless
+      - INTER_RUN_INTERVAL=600
+      - HOSTS=127.0.0.1 tracking.paypal.com
+      - WKHTMLTOPDF_OPTIONS={"load-media-error-handling":"ignore"}
+      - PRINT_FAILED_MSG=1
